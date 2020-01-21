@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: 'https://rocketseact-node.herokuapp.com/api' });
+const api = axios.create({ baseURL: 'https://official-joke-api.appspot.com/' });
 
 export default api;
