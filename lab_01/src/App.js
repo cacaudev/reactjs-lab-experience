@@ -2,10 +2,12 @@ import React from 'react';
 
 import './styles.css';
 import Header from './components/Header';
+import Main from './views/main';
 
 const App = () => (
   <div className="App">
     <Header />
+    <Main />
   </div>
 );
 
