@@ -3,7 +3,7 @@ import './styles.css';
 
 const Header = () => {
   return (
-    <header id="main-header">Joke Generator</header>
+    <header id="main-header">Magic The Gathering Cards</header>
   );
 }
 

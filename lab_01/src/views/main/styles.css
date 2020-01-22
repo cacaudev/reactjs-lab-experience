@@ -12,7 +12,7 @@
   margin-bottom: 20px;
 }
 
-.items-list article h3 {
+.items-list article a {
   height: 42px;
   border-radius: 5px;
   border: 2px solid #da552f;
@@ -26,11 +26,20 @@
   justify-content: center;
   align-items: center;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
-.items-list article h3:hover {
+.items-list article a:hover {
   background: #da552f;
   color: #fff;
+}
+
+.items-list article h3 {
+  color: #da552f;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: left;
 }
 
 .items-list article p {

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Main, Register } from "../../views";
+import { Main, Product } from "../../views";
 
 const RouteRender = ({ ...rest }) => {
   return (
@@ -11,7 +11,7 @@ const RouteRender = ({ ...rest }) => {
 const Router = params => {
   const routes = [
     { path: "/", exact: true, component: Main },
-    { path: "/register", exact: true, component: Register },
+    { path: "/products/:id", exact: true, component: Product },
   ];
 
   return (
