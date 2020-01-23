@@ -14,9 +14,7 @@ class Product extends Component {
 
   loadProduct = async () => {
     const { id } = this.props.match.params;
-    console.log(' id ', id);
     const product_response = await api.get(`/cards/${id}`);
-    console.log('product_response ', product_response.data);
     this.setState({ product: product_response.data.card });
   }
 

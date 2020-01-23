@@ -14,7 +14,6 @@ class Main extends Component {
 
   loadProducts = async () => {
     const response = await api.get('/cards');
-    console.log('response.data ', response.data);
     if (response.data)
       this.setState({ items: response.data.cards })
   }
