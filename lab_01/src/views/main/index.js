@@ -22,7 +22,7 @@ class Main extends Component {
   render() {
     const { items } = this.state;
     return (
-      <div className="items-list">
+      <section className="items-list">
         {items.map(item => (
           <article key={item.id}>
             <h3>{item.name}</h3>
@@ -34,11 +34,11 @@ class Main extends Component {
             <Link to={`/products/${item.id}`}>Link to card details</Link>
           </article>
         ))}
-        <div className="actions">
+        <section className="actions">
           <button>Previous</button>
           <button>Next</button>
-        </div>
-      </div>
+        </section>
+      </section>
     )
   }
 }

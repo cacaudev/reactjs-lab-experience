@@ -9,7 +9,6 @@ class Product extends Component {
   };
 
   componentDidMount() {
-    console.log('component did mount');
     this.loadProduct();
   }
 
@@ -24,19 +23,17 @@ class Product extends Component {
   render() {
     const { product } = this.state;
     return (
-      <div className="product-info">
-        <aside>
-          <img src={product.imageUrl} />
-        </aside>
-        <main>
+      <section className="product">
+        <img src={product.imageUrl} />
+        <div className="product-info">
           <h1>{product.name}</h1>
-          <p>
-            <strong>{product.type}</strong>
-            <br />
-            {product.text}
-          </p>
-        </main>
-      </div>
+          <span>{product.type}</span>
+          <p>{product.text}</p>
+          <p>{product.rarity}</p>
+          <p>{product.artist}</p>
+          <p>{product.setName}</p>
+        </div>
+      </section>
     )
   };
 };
