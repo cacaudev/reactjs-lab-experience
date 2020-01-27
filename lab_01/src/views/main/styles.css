@@ -19,7 +19,7 @@
   background: none;
   margin-bottom: 10px;
   color: #7d40e7;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
   text-decoration: none;
   display: flex;
@@ -62,7 +62,7 @@
   background: #7d40e7;
   color: #fff;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer;
 }
 

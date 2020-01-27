@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../services/api';
+import API from '../../services/api';
 import './styles.css';
+
+import Loader from '../../components/Loader';
 
 class Main extends Component {
   state = {
-    items: []
+    items: [],
+    loading: true
   };
 
   componentDidMount() {
@@ -13,13 +16,16 @@ class Main extends Component {
   }
 
   loadProducts = async () => {
-    const response = await api.get('/cards');
-    if (response.data)
+    const response = await API.get('/cards');
+    if (response.data) {
+      this.state.loading = false;
       this.setState({ items: response.data.cards })
+    }
   }
 
   render() {
     const { items } = this.state;
+    if (this.state.loading) return <Loader />;
     return (
       <section className="items-list">
         {items.map(item => (

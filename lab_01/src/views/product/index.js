@@ -1,26 +1,25 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
-import api from '../../services/api';
+import API from '../../services/api';
 
-class Product extends Component {
-  state = {
-    product: {}
-  };
+export default function Product(props) {
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true)
 
-  componentDidMount() {
-    this.loadProduct();
-  }
+  useEffect(() => {
+    const loadProduct = async () => {
+      const { id } = props.match.params;
+      const product_response = await API.get(`/cards/${id}`);
+      setLoading(false);
+      setProduct(product_response.data.card);
+    }
+    loadProduct();
+  }, []);
 
-  loadProduct = async () => {
-    const { id } = this.props.match.params;
-    const product_response = await api.get(`/cards/${id}`);
-    this.setState({ product: product_response.data.card });
-  }
-
-  render() {
-    const { product } = this.state;
-    return (
+  return (
+    <>
       <section className="product">
         <img src={product.imageUrl} />
         <div className="product-info">
@@ -32,8 +31,7 @@ class Product extends Component {
           <p>{product.setName}</p>
         </div>
       </section>
-    )
-  };
+      <Link to={`/`}>Back to Homepage</Link>
+    </>
+  )
 };
-
-export default Product;
