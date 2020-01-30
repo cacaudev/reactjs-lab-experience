@@ -4,15 +4,13 @@ import "./styles.css";
 
 import API from "../../services/api";
 
-export default function Product(props) {
+function Product(props) {
   const [product, setProduct] = useState({});
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadProduct = async () => {
       const { id } = props.match.params;
       const productResponse = await API.get(`/cards/${id}`);
-      setLoading(false);
       setProduct(productResponse.data.card);
     };
     loadProduct();
@@ -35,3 +33,5 @@ export default function Product(props) {
     </>
   );
 }
+
+export default Product;

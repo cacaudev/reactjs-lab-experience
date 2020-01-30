@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Loader = () => {
-  return (
-    <div className="loader center">
-      <i className="fa fa-cog fa-spin" />
-    </div>
-  )
-}
+const Loader = () => (
+  <div className="ui active large text loader">
+    <h2>Loading...</h2>
+  </div>
+);
 
 export default Loader;
