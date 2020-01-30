@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import API from '../../services/api';
-import './styles.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import API from "../../services/api";
+import "./styles.css";
 
-import Loader from '../../components/Loader';
+import Loader from "../../components/Loader";
 
 class Main extends Component {
   state = {
@@ -16,16 +16,16 @@ class Main extends Component {
   }
 
   loadProducts = async () => {
-    const response = await API.get('/cards');
+    const response = await API.get("/cards");
     if (response.data) {
       this.state.loading = false;
-      this.setState({ items: response.data.cards })
+      this.setState({ items: response.data.cards });
     }
-  }
+  };
 
   render() {
-    const { items } = this.state;
-    if (this.state.loading) return <Loader />;
+    const { items, loading } = this.state;
+    if (loading) return <Loader />;
     return (
       <section className="items-list">
         {items.map(item => (
@@ -40,11 +40,11 @@ class Main extends Component {
           </article>
         ))}
         <section className="actions">
-          <button>Previous</button>
-          <button>Next</button>
+          <button type="button">Previous</button>
+          <button type="button">Next</button>
         </section>
       </section>
-    )
+    );
   }
 }
 

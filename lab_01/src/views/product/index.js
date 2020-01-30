@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import './styles.css';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./styles.css";
 
-import API from '../../services/api';
+import API from "../../services/api";
 
 export default function Product(props) {
   const [product, setProduct] = useState({});
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadProduct = async () => {
       const { id } = props.match.params;
-      const product_response = await API.get(`/cards/${id}`);
+      const productResponse = await API.get(`/cards/${id}`);
       setLoading(false);
-      setProduct(product_response.data.card);
-    }
+      setProduct(productResponse.data.card);
+    };
     loadProduct();
   }, []);
 
   return (
     <>
       <section className="product">
-        <img src={product.imageUrl} />
+        <img src={product.imageUrl} alt="" />
         <div className="product-info">
           <h1>{product.name}</h1>
           <span>{product.type}</span>
@@ -31,7 +31,7 @@ export default function Product(props) {
           <p>{product.setName}</p>
         </div>
       </section>
-      <Link to={`/`}>Back to Homepage</Link>
+      <Link to={"/"}>Back to Homepage</Link>
     </>
-  )
-};
+  );
+}
