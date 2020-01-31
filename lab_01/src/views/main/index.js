@@ -7,7 +7,7 @@ import Loader from '../../components/Loader';
 class Main extends Component {
   state = {
     items: [],
-    loadingS: true
+    loading: true
   };
 
   componentDidMount() {
@@ -26,26 +26,27 @@ class Main extends Component {
 
   render() {
     const { items, loading } = this.state;
+    if (loading) return <Loader asset="cards" />;
     return (
-      <div>
-        {loading ? (
-          <Loader />
-        ) : (
-            <section className="items-list">
-              {items.map((item) => (
-                <article key={item.id}>
-                  <h3>{item.name}</h3>
-                  <p>
-                    <strong>{item.type}</strong>
-                    <br />
-                    {item.text}
-                  </p>
-                  <Link to={`/products/${item.id}`}>Link to card details</Link>
-                </article>
-              ))}
-            </section>
-          )}
-      </div>
+      <section>
+        <section className="items-list">
+          {items.map((item) => (
+            <article key={item.id}>
+              <h3>{item.name}</h3>
+              <p>
+                <strong>{item.type}</strong>
+                <br />
+                {item.text}
+              </p>
+              <Link to={`/products/${item.id}`}>Link to card details</Link>
+            </article>
+          ))}
+        </section>
+        <section className="actions">
+          <button type="button">Previous</button>
+          <button type="button">Next</button>
+        </section>
+      </section>
     );
   }
 }

@@ -49,13 +49,13 @@
   line-height: 24px;
 }
 
-.items-list .actions {
+.actions {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.items-list .actions button {
+.actions button {
   padding: 10px;
   border-radius: 5px;
   border: 0;
@@ -66,6 +66,6 @@
   cursor: pointer;
 }
 
-.items-list .actions button:hover {
+.actions button:hover {
   opacity: 0.7;
 }
