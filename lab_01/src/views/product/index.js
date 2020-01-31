@@ -21,7 +21,7 @@ function Product(props) {
 
   if (loading) return <Loader asset="card" />;
   return (
-    <>
+    <section className="product-page">
       <section className="product">
         <img src={product.imageUrl} alt="" />
         <div className="product-info">
@@ -34,7 +34,7 @@ function Product(props) {
         </div>
       </section>
       <Link to={"/"}>Back to Homepage</Link>
-    </>
+    </section>
   );
 }
 

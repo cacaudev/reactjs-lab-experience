@@ -28,8 +28,8 @@ class Main extends Component {
     const { items, loading } = this.state;
     if (loading) return <Loader asset="cards" />;
     return (
-      <section>
-        <section className="items-list">
+      <section className="items">
+        <section className="items items-list">
           {items.map((item) => (
             <article key={item.id}>
               <h3>{item.name}</h3>
@@ -42,7 +42,7 @@ class Main extends Component {
             </article>
           ))}
         </section>
-        <section className="actions">
+        <section className="items actions">
           <button type="button">Previous</button>
           <button type="button">Next</button>
         </section>

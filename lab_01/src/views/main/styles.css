@@ -1,11 +1,12 @@
-.items-list {
+.items {
   max-width: 700px;
-  margin: 20px auto 10px;
+  margin: 80px auto 10px;
   padding: 0 20px;
 }
 
 .items-list article {
   background: #fff;
+  box-shadow:  0 0 14px 0 rgba(0,0,0, 0.2);
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 20px;
