@@ -1,54 +1,49 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../services/api';
 import './styles.css';
 import Loader from '../../components/Loader';
 
-class Main extends Component {
-  state = {
-    items: [],
-    loading: true
-  };
+function Main() {
+  const [items, setItems] = useState([]);
+  const [loadingScreen, setLoadingScreen] = useState(true);
 
-  componentDidMount() {
-    this.loadProducts();
-  }
-
-  loadProducts = async () => {
-    const response = await API.get('/cards');
-    if (response.data) {
-      this.setState({
-        loading: false,
-        items: response.data.cards,
+  const loadProducts = async () => {
+    await API.get('/cards')
+      .then((response) => {
+        if (response.data) {
+          setItems(response.data.cards);
+          setLoadingScreen(false);
+        }
       });
-    }
   };
 
-  render() {
-    const { items, loading } = this.state;
-    if (loading) return <Loader asset="cards" />;
-    return (
-      <section className="items">
-        <section className="items items-list">
-          {items.map((item) => (
-            <article key={item.id}>
-              <h3>{item.name}</h3>
-              <p>
-                <strong>{item.type}</strong>
-                <br />
-                {item.text}
-              </p>
-              <Link to={`/products/${item.id}`}>Link to card details</Link>
-            </article>
-          ))}
-        </section>
-        <section className="items actions">
-          <button type="button">Previous</button>
-          <button type="button">Next</button>
-        </section>
+  useEffect(() => {
+    loadProducts();
+  }, []);
+
+  if (loadingScreen) return <Loader asset="cards" />;
+  return (
+    <section className="items">
+      <section className="items items-list">
+        {items.map((item) => (
+          <article key={item.id}>
+            <h3>{item.name}</h3>
+            <p>
+              <strong>{item.type}</strong>
+              <br />
+              {item.text}
+            </p>
+            <Link to={`/products/${item.id}`}>Link to card details</Link>
+          </article>
+        ))}
       </section>
-    );
-  }
+      <section className="items actions">
+        <button type="button">Previous</button>
+        <button type="button">Next</button>
+      </section>
+    </section>
+  );
 }
 
 export default Main;

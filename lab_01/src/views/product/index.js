@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import "./styles.css";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './styles.css';
 
-import API from "../../services/api";
+import API from '../../services/api';
 import Loader from '../../components/Loader';
 
 function Product(props) {
@@ -12,9 +12,13 @@ function Product(props) {
   useEffect(() => {
     const loadProduct = async () => {
       const { id } = props.match.params;
-      const productResponse = await API.get(`/cards/${id}`);
-      setProduct(productResponse.data.card);
-      setLoading(false);
+      await API.get(`/cards/${id}`)
+        .then((response) => {
+          if (response.data) {
+            setProduct(response.data.card);
+            setLoading(false);
+          }
+        });
     };
     loadProduct();
   }, []);
