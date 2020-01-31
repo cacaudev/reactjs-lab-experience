@@ -6,10 +6,23 @@ header#main-header {
   font-weight: bold;
   color: #FFF;
   display: flex;
-  justify-content: center;
+  flex: 1;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   z-index: 100;
   margin: 0;
+  padding-left: 5px;
+  padding-right: 20px;
+}
+
+span.title {
+  /*display: flex;*/
+  text-align: center;
+}
+
+span.logo {
+  /*display: inline-block;*/
+  padding: 5px;
 }
