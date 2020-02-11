@@ -11,7 +11,7 @@ header#main-header {
   align-items: center;
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 5;
   margin: 0;
   padding-left: 5px;
   padding-right: 20px;
@@ -25,4 +25,34 @@ span.title {
 span.logo {
   /*display: inline-block;*/
   padding: 5px;
+}
+
+span.link-text {
+  padding: 5px;
+  font-size: 15px;
+  display: inline;
+  align-items: center;
+}
+
+span.not-implemented {
+  display: inline-block;
+  position: absolute;
+  font-size: 11px;
+  font-weight: bold;
+  top: 15px;
+  right: 8px;
+  width: 120px;
+  height: 30px;
+  padding: 5px 0 0 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  color: #42526E;
+  background: #dfe1e6;
+  z-index: 10;
+  opacity: 0;
+  cursor: not-allowed;
+}
+
+span.not-implemented:hover {
+  opacity: 1;
 }
